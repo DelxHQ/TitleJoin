@@ -4,7 +4,6 @@ import me.delxhq.TitleJoin.TitleJoin;
 import io.gomint.config.Comment;
 import io.gomint.config.InvalidConfigurationException;
 import io.gomint.config.YamlConfig;
-import lombok.Getter;
 
 import java.io.File;
 
@@ -19,12 +18,10 @@ public class Config extends YamlConfig {
     }
 
     @Comment("This is where you change the title")
-    @Getter
-    private String Title = "Welcome to my server!";
+    private String title = "Welcome to my server!";
 
     @Comment("This is where you set the subtitle for the title")
-    @Getter
-    private String SubTitle = "Enjoy!";
+    private String subTitle = "Enjoy!";
 
     public void saveFile(TitleJoin plugin) {
         try {
@@ -32,5 +29,13 @@ public class Config extends YamlConfig {
         } catch (InvalidConfigurationException e) {
             e.printStackTrace();
         }
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getSubTitle() {
+        return subTitle;
     }
 }

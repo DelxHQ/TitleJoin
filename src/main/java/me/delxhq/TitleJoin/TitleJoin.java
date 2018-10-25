@@ -11,26 +11,23 @@ import me.delxhq.TitleJoin.listeners.JoinListener;
 @Version(major = 1, minor = 0)
 
 public class TitleJoin extends Plugin {
-    public static TitleJoin instance = null;
+    private static TitleJoin instance = null;
     private Config config;
-
-    public static TitleJoin instance() {
-        return instance;
-    }
 
     @Override
     public void onInstall() {
         instance = this;
 
         this.config = new Config(this);
-
         this.getLogger().info(ChatColor.GREEN + this.getName() + ChatColor.WHITE + " started!");
-
         this.registerListener(new JoinListener());
     }
 
     public Config getConfig() {
         return config;
     }
-}
 
+    public static TitleJoin instance() {
+        return instance;
+    }
+}
